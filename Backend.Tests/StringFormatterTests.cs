@@ -52,4 +52,14 @@ public class Tests
         Assert.That(actual, Is.EqualTo("one item"));
     }
     
+    [Test]
+    public void ShouldBeAbleToHandleJustOneItemWithQuotes()
+    {
+        string[] input = ["one item"];
+
+        var actual = input.ToCommaSeparatedList(QuoteType.SingleQuotes);
+        
+        Assert.That(actual, Is.EqualTo("'one item'"));
+    }
+    
 }
