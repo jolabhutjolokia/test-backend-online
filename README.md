@@ -10,13 +10,23 @@ For candidates, please follow the below points to complete the test:
 
 Thank you for completing the code test with PointsBet.
 
-# Improvements
+## Improvements
 
-1) created backend project
+1) created solution file
+2) created backend project
 2) created backend tests project
 3) Fixed method name typo
 4) Changed the method to extension method so it reads better
 5) Used string interpolation for better readability
 6) Fixed bug where the code would fail for an empty array
 7) Made setting quotes optional and default to no quotes 
-8) Added preconfigured set of commonly used quotes symbols but allow support for custom symbols 
+8) Added preconfigured set of commonly used quotes symbols but allow support for custom symbols
+
+## Commands
+
+
+```shell
+# to run the new tests at root
+dotnet test
+
+```
