@@ -17,16 +17,16 @@ public static class StringFormatter
     public static string ToCommaSeparatedList(this IEnumerable<string> items, QuoteType? quote = null)
     {
         var quotesToUse = quote ?? QuoteType.NoQuotes;
-        var qry = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         var isFirstItem = true;
         foreach (var item in items)
         {
             var part = isFirstItem
                 ? $"{quotesToUse.Start}{item}{quotesToUse.End}"
                 : $", {quotesToUse.Start}{item}{quotesToUse.End}";
-            qry.Append(part);
+            stringBuilder.Append(part);
             isFirstItem = false;
         }
-        return qry.ToString();
+        return stringBuilder.ToString();
     }
 }
