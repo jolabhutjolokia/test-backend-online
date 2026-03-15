@@ -21,6 +21,7 @@ Thank you for completing the code test with PointsBet.
 6) Fixed bug where the code would fail for an empty array
 7) Made setting quotes optional and default to no quotes 
 8) Added preconfigured set of commonly used quotes symbols but allow support for custom symbols
+9) Change string Array to IEnumerable to support more types
 
 ## Commands
 

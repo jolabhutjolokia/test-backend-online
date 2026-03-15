@@ -3,7 +3,7 @@
 public class Tests
 {
     [Test]
-    public void ShouldBeAbleToFormatStringWithProvidedSeparatorAndQuotes()
+    public void ShouldBeAbleToFormatArrayWithProvidedSeparatorAndQuotes()
     {
         var input = new[]{"apples", "oranges", "mangoes"};
 
@@ -11,6 +11,17 @@ public class Tests
         
         Assert.That(actual, Is.EqualTo("\"apples\", \"oranges\", \"mangoes\""));
     }
+
+    [Test]
+    public void ShouldAllowListOfStringsToBeFormattedWithProvidedSeparatorAndQuotes()
+    {
+        List<string> input = ["apples", "oranges", "mangoes"];
+
+        var actual = input.ToCommaSeparatedList(QuoteType.DoubleQuotes);
+        
+        Assert.That(actual, Is.EqualTo("\"apples\", \"oranges\", \"mangoes\""));
+    }
+    
     
     [Test]
     public void ShouldAllowCustomQuotes()

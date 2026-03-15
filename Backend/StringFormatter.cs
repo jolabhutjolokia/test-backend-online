@@ -14,16 +14,19 @@ namespace Backend
     public static class StringFormatter
     {
         //Code to improve
-        public static string ToCommaSeparatedList(this string[] items, QuoteType? quote = null)
+        public static string ToCommaSeparatedList(this IEnumerable<string> items, QuoteType? quote = null)
         {
             var quotesToUse = quote ?? QuoteType.NoQuotes;
-            if (items.Length == 0) return string.Empty;
-            var qry = new StringBuilder($"{quotesToUse.Start}{items[0]}{quotesToUse.End}");
-            for (var i = 1; i < items.Length; i++)
+            var qry = new StringBuilder();
+            var isFirstItem = true;
+            foreach (var item in items)
             {
-                qry.Append($", {quotesToUse.Start}{items[i]}{quotesToUse.End}");
+                var part = isFirstItem
+                    ? $"{quotesToUse.Start}{item}{quotesToUse.End}"
+                    : $", {quotesToUse.Start}{item}{quotesToUse.End}";
+                qry.Append(part);
+                isFirstItem = false;
             }
-
             return qry.ToString();
         }
     }
